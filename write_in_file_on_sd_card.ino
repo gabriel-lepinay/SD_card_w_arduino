@@ -12,6 +12,7 @@
 #include <SPI.h>
 #include <SD.h>
 
+char pathname[] = "test.txt"; // Path of the file you want to write in
 File file;
 
 void setup() {
@@ -27,7 +28,7 @@ void setup() {
   
   Serial.println(" done.");
   
-  file = SD.open("test.txt", FILE_WRITE);
+  file = SD.open(pathname, FILE_WRITE);
   if (file) {
     Serial.print("Writing to file...");
     file.println("This is a cool sentence in a test file :)");
